@@ -2,7 +2,6 @@
   <param name="/use_sim_time" value="true"/>
   <node pkg="stageroscam" type="stageroscam" name="IGVC_stage" args="$(find stageroscam)/world/IGVC2013_Auto-Nav_Basic3.world" output="screen">
   </node>
-  <node pkg="rviz" type="rviz" name="rviz_stage" args="-d $(find stageroscam)/rviz/stage_matlab.vcg" output="screen">
+   <include file="$(find stageroscam)/stagerviz.launch" />
 
-  </node>
  </launch>

@@ -30,6 +30,9 @@ add_dependencies(bin/stageroscam build_stage)
 rosbuild_add_compile_flags(bin/stageroscam ${STAGE_CFLAGS_OTHERS})
 target_link_libraries(bin/stageroscam ${STAGE_LIBRARIES})
 rosbuild_add_link_flags(bin/stageroscam ${STAGE_LDFLAGS_OTHERS})
+if(APPLE)
+  set_target_properties(bin/stageroscam PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+endif(APPLE)
 
 
 rosbuild_add_rostest(test/hztest.xml)
